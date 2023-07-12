@@ -9,14 +9,9 @@ app.get('/', (req, res) => {
     res.render('index', { text: "world"})
 })
 
-app.get('/users', (req, res) => {
-    res.send('user list')
-})
+const userRouter = require('./routes/users')
 
-app.get('/users/new', (req, res) => {
-    res.send('new user')
-})
-
+app.use('/users', userRouter)
 
 
 app.listen(3200)
